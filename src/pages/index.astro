@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { ArrowRightIcon as ArrowRight } from "@phosphor-icons/react/dist/csr/ArrowRight";
 import { ArrowUpRightIcon as ArrowUpRight } from "@phosphor-icons/react/dist/csr/ArrowUpRight";
 import { BracketsCurlyIcon as BracketsCurly } from "@phosphor-icons/react/dist/csr/BracketsCurly";
@@ -17,6 +18,8 @@ import { ShieldCheckIcon as ShieldCheck } from "@phosphor-icons/react/dist/csr/S
 import AgentConsole from "../components/AgentConsole";
 import SiteHeader from "../components/SiteHeader";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import heroImage from "../assets/agent-operating-system.png";
+import inferenceImage from "../assets/local-inference.png";
 
 const marqueeItems = [
   "TypeScript",
@@ -126,11 +129,13 @@ const packages = [
 
           <div class="hero-visual relative lg:pl-4">
             <div class="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-ink-900 shadow-[0_40px_120px_rgba(0,0,0,0.42)]">
-              <img
-                src="/images/agent-operating-system.png"
+              <Image
+                src={heroImage}
                 alt="由模块化金属组件构成的智能体运行时核心"
-                width="2624"
-                height="1472"
+                widths={[640, 1024, 1600]}
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                format="webp"
+                quality={80}
                 loading="eager"
                 decoding="async"
                 fetchpriority="high"
@@ -413,11 +418,13 @@ const packages = [
           </div>
 
           <figure class="reveal order-1 overflow-hidden rounded-[1.5rem] border border-white/10 bg-ink-950 lg:order-2">
-            <img
-              src="/images/local-inference.png"
+            <Image
+              src={inferenceImage}
               alt="本地 AI 推理模块的芯片与散热结构特写"
-              width="2624"
-              height="1472"
+              widths={[640, 1024, 1600]}
+              sizes="(min-width: 1024px) 55vw, 100vw"
+              format="webp"
+              quality={80}
               loading="lazy"
               decoding="async"
               class="aspect-video w-full object-cover"

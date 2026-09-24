@@ -1,0 +1,560 @@
+---
+import { ArrowRightIcon as ArrowRight } from "@phosphor-icons/react/dist/csr/ArrowRight";
+import { ArrowUpRightIcon as ArrowUpRight } from "@phosphor-icons/react/dist/csr/ArrowUpRight";
+import { BracketsCurlyIcon as BracketsCurly } from "@phosphor-icons/react/dist/csr/BracketsCurly";
+import { CheckCircleIcon as CheckCircle } from "@phosphor-icons/react/dist/csr/CheckCircle";
+import { CloudIcon as Cloud } from "@phosphor-icons/react/dist/csr/Cloud";
+import { CodeIcon as Code } from "@phosphor-icons/react/dist/csr/Code";
+import { CpuIcon as Cpu } from "@phosphor-icons/react/dist/csr/Cpu";
+import { DatabaseIcon as Database } from "@phosphor-icons/react/dist/csr/Database";
+import { DeviceMobileIcon as DeviceMobile } from "@phosphor-icons/react/dist/csr/DeviceMobile";
+import { DownloadSimpleIcon as DownloadSimple } from "@phosphor-icons/react/dist/csr/DownloadSimple";
+import { FlowArrowIcon as FlowArrow } from "@phosphor-icons/react/dist/csr/FlowArrow";
+import { GithubLogoIcon as GithubLogo } from "@phosphor-icons/react/dist/csr/GithubLogo";
+import { LightningIcon as Lightning } from "@phosphor-icons/react/dist/csr/Lightning";
+import { PuzzlePieceIcon as PuzzlePiece } from "@phosphor-icons/react/dist/csr/PuzzlePiece";
+import { ShieldCheckIcon as ShieldCheck } from "@phosphor-icons/react/dist/csr/ShieldCheck";
+import AgentConsole from "../components/AgentConsole";
+import SiteHeader from "../components/SiteHeader";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const marqueeItems = [
+  "TypeScript",
+  "Agent Runtime",
+  "Plugins",
+  "Local Inference",
+  "Memory",
+  "Bun",
+  "Open Source",
+];
+
+const capabilities = [
+  {
+    title: "对话只是起点",
+    body: "从理解意图到调用工具，智能体在同一条消息循环中持续行动。",
+    icon: Lightning,
+  },
+  {
+    title: "记忆与知识",
+    body: "保留上下文、检索文档，并把每次经验沉淀为长期记忆。",
+    icon: Database,
+  },
+  {
+    title: "原生设备桥接",
+    body: "连接相机、联系人、定位、电话与短信，让能力进入真实世界。",
+    icon: DeviceMobile,
+  },
+  {
+    title: "工作流与编码",
+    body: "编排定时任务、开发流程与多步骤目标，支持人工审批边界。",
+    icon: FlowArrow,
+  },
+];
+
+const packages = [
+  {
+    name: "@elizaos/core",
+    description: "定义 AgentRuntime、消息循环、状态、记忆与插件契约。",
+  },
+  {
+    name: "@elizaos/agent",
+    description: "组装独立智能体与 HTTP 后端，直接运行你的工作区。",
+  },
+  {
+    name: "@elizaos/ui",
+    description: "为 Eliza 应用提供可复用的共享 React 界面。",
+  },
+  {
+    name: "elizaos",
+    description: "创建、升级和部署项目与插件的官方 CLI。",
+  },
+];
+---
+
+<BaseLayout
+  title="elizaOS｜你的智能体操作系统"
+  description="elizaOS 是面向自主 AI 智能体的开源 TypeScript 框架与产品栈。连接模型、记忆、工具与设备，让智能体从对话走向行动。"
+>
+  <div class="page-grid min-h-screen">
+    <SiteHeader client:load />
+
+    <main id="top">
+      <section class="relative overflow-hidden border-b border-white/8">
+        <div
+          class="surface-grid pointer-events-none absolute inset-0"
+          aria-hidden="true"
+        ></div>
+        <div class="relative mx-auto grid min-h-[calc(100dvh-4.5rem)] max-w-7xl items-center gap-12 px-5 py-12 sm:px-8 sm:py-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-10 lg:py-14">
+          <div class="hero-copy max-w-2xl">
+            <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-3 py-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-mist-300">
+              <span
+                class="status-dot size-1.5 rounded-full bg-signal-400"
+                aria-hidden="true"
+              ></span>
+              Open-source agent infrastructure
+            </div>
+            <h1 class="text-balance text-4xl leading-[0.98] font-semibold tracking-[-0.06em] text-mist-100 sm:text-6xl lg:text-[3.35rem]">
+              你的智能体，
+              <br />
+              现在有了操作系统。
+            </h1>
+            <p class="text-pretty mt-7 max-w-xl text-base leading-8 text-mist-300 sm:text-lg">
+              开源 TypeScript
+              框架，连接模型、记忆、工具与设备，让智能体从对话走向行动。
+            </p>
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="https://eliza.app"
+                target="_blank"
+                rel="noreferrer"
+                class="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-signal-400 px-6 text-sm font-semibold text-ink-950 hover:bg-signal-300 active:scale-[0.98]"
+              >
+                打开 Eliza
+                <ArrowUpRight size={17} weight="bold" />
+              </a>
+              <a
+                href="https://docs.elizaos.ai/"
+                target="_blank"
+                rel="noreferrer"
+                class="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/14 bg-white/[0.035] px-6 text-sm font-semibold text-mist-100 hover:border-white/24 hover:bg-white/[0.07] active:scale-[0.98]"
+              >
+                阅读文档
+                <ArrowRight size={17} weight="bold" />
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-visual relative lg:pl-4">
+            <div class="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-ink-900 shadow-[0_40px_120px_rgba(0,0,0,0.42)]">
+              <img
+                src="/images/agent-operating-system.png"
+                alt="由模块化金属组件构成的智能体运行时核心"
+                width="2624"
+                height="1472"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+                class="aspect-video w-full object-cover"
+              />
+              <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink-950/65 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 flex items-center gap-2 rounded-full border border-white/12 bg-ink-950/75 px-3 py-2 text-xs text-mist-300 backdrop-blur-md sm:bottom-5 sm:left-5">
+                <span
+                  class="status-dot size-1.5 rounded-full bg-signal-400"
+                  aria-hidden="true"
+                ></span>
+                Runtime ready
+                <span class="font-mono text-mist-500">/ 4 routes</span>
+              </div>
+            </div>
+            <div
+              class="absolute -right-3 -top-3 size-20 rounded-tl-[1.5rem] border-l border-t border-signal-400/50"
+              aria-hidden="true"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="overflow-hidden border-b border-white/8 bg-ink-900/50 py-5"
+        aria-label="核心技术与能力"
+      >
+        <div class="marquee-track flex w-max items-center">
+          {[...marqueeItems, ...marqueeItems].map((item, index) => (
+            <div
+              class="flex items-center"
+              aria-hidden={index >= marqueeItems.length ? "true" : undefined}
+            >
+              <span class="px-7 font-mono text-xs uppercase tracking-[0.16em] text-mist-500 sm:px-10 sm:text-sm">
+                {item}
+              </span>
+              <span
+                class="size-1 rounded-full bg-signal-400/70"
+                aria-hidden="true"
+              ></span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="product" class="scroll-mt-24 py-24 sm:py-32 lg:py-40">
+        <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div class="grid gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:items-start lg:gap-16">
+            <div class="reveal lg:sticky lg:top-28">
+              <h2 class="text-balance text-4xl leading-tight font-semibold tracking-[-0.045em] sm:text-5xl">
+                一个智能体，
+                <br />
+                连接完整世界。
+              </h2>
+              <p class="text-pretty mt-6 max-w-md text-base leading-8 text-mist-300">
+                Eliza
+                把模型、记忆、工具、审批和设备能力放进同一运行时，让复杂任务保持连续。
+              </p>
+              <div class="mt-10 border-t border-white/10">
+                <div class="flex items-center gap-4 border-b border-white/10 py-5">
+                  <CheckCircle size={19} className="shrink-0 text-signal-400" />
+                  <p class="text-sm leading-6 text-mist-300">
+                    模型无关，能力由插件组合
+                  </p>
+                </div>
+                <div class="flex items-center gap-4 border-b border-white/10 py-5">
+                  <CheckCircle size={19} className="shrink-0 text-signal-400" />
+                  <p class="text-sm leading-6 text-mist-300">
+                    本地、服务端与 Cloud 灵活路由
+                  </p>
+                </div>
+                <div class="flex items-center gap-4 border-b border-white/10 py-5">
+                  <CheckCircle size={19} className="shrink-0 text-signal-400" />
+                  <p class="text-sm leading-6 text-mist-300">
+                    高风险操作保留人工审批边界
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="reveal">
+              <AgentConsole client:visible />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="capabilities"
+        class="scroll-mt-24 border-y border-white/8 bg-ink-900/45 py-24 sm:py-32"
+      >
+        <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div class="reveal max-w-3xl">
+            <h2 class="text-balance text-4xl leading-tight font-semibold tracking-[-0.045em] sm:text-5xl">
+              能力不是清单，
+              <br />
+              是可组合的系统。
+            </h2>
+            <p class="text-pretty mt-6 max-w-2xl text-base leading-8 text-mist-300 sm:text-lg">
+              同一个插件可以注册动作、模型处理器、服务、事件、路由与界面视图，在不同宿主中保持一致。
+            </p>
+          </div>
+
+          <div class="mt-14 grid gap-4 md:grid-cols-12 md:auto-rows-[minmax(13rem,auto)]">
+            <article class="reveal relative overflow-hidden rounded-[1.5rem] border border-signal-400/20 bg-signal-400/[0.07] p-6 sm:p-8 md:col-span-7 md:row-span-2">
+              <div class="absolute inset-0 bg-[radial-gradient(circle_at_75%_35%,rgba(183,243,75,0.12),transparent_45%)]"></div>
+              <div class="relative flex h-full min-h-105 flex-col justify-between">
+                <div class="flex items-center justify-between gap-6">
+                  <div>
+                    <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-signal-400">
+                      Runtime
+                    </p>
+                    <h3 class="mt-4 max-w-md text-3xl font-semibold tracking-[-0.035em]">
+                      一个运行时，连接每一种能力。
+                    </h3>
+                  </div>
+                  <FlowArrow
+                    size={34}
+                    className="hidden shrink-0 text-signal-400 sm:block"
+                  />
+                </div>
+                <div class="relative mt-12 grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-2 rounded-2xl border border-white/10 bg-ink-950/60 p-4 sm:gap-4 sm:p-5">
+                  <div class="rounded-xl border border-white/10 bg-white/[0.04] p-3 text-center">
+                    <Cpu size={21} className="mx-auto text-mist-300" />
+                    <span class="mt-2 block font-mono text-[10px] text-mist-500">
+                      MODEL
+                    </span>
+                  </div>
+                  <span
+                    class="h-px w-5 bg-signal-400/60 sm:w-10"
+                    aria-hidden="true"
+                  ></span>
+                  <div class="rounded-xl border border-signal-400/25 bg-signal-400/8 p-3 text-center">
+                    <Lightning size={21} className="mx-auto text-signal-400" />
+                    <span class="mt-2 block font-mono text-[10px] text-signal-400">
+                      AGENT
+                    </span>
+                  </div>
+                  <span
+                    class="h-px w-5 bg-signal-400/60 sm:w-10"
+                    aria-hidden="true"
+                  ></span>
+                  <div class="rounded-xl border border-white/10 bg-white/[0.04] p-3 text-center">
+                    <PuzzlePiece size={21} className="mx-auto text-mist-300" />
+                    <span class="mt-2 block font-mono text-[10px] text-mist-500">
+                      PLUGINS
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            {capabilities.map((capability) => {
+              const Icon = capability.icon;
+              return (
+                <article class="reveal flex min-h-52 flex-col justify-between rounded-[1.5rem] border border-white/9 bg-ink-850 p-6 hover:border-white/16 sm:p-7 md:col-span-5">
+                  <Icon
+                    size={25}
+                    className="text-signal-400"
+                    aria-hidden="true"
+                  />
+                  <div class="mt-12">
+                    <h3 class="text-xl font-semibold tracking-[-0.02em]">
+                      {capability.title}
+                    </h3>
+                    <p class="text-pretty mt-3 text-sm leading-6 text-mist-500">
+                      {capability.body}
+                    </p>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section id="framework" class="scroll-mt-24 py-24 sm:py-32 lg:py-40">
+        <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div class="reveal max-w-3xl">
+            <h2 class="text-balance text-4xl leading-tight font-semibold tracking-[-0.045em] sm:text-5xl">
+              从嵌入式运行时，
+              <br />
+              到完整智能体。
+            </h2>
+            <p class="text-pretty mt-6 max-w-2xl text-base leading-8 text-mist-300 sm:text-lg">
+              按项目规模选择入口。需要控制权时直接使用
+              Core，需要开箱运行时时使用 Agent。
+            </p>
+          </div>
+
+          <div class="mt-14 grid overflow-hidden rounded-[1.5rem] border border-white/10 bg-ink-900 lg:grid-cols-[1.12fr_0.88fr]">
+            <div class="border-b border-white/10 p-5 sm:p-8 lg:border-r lg:border-b-0 lg:p-10">
+              <div class="mb-8 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-2 font-mono text-xs text-mist-500">
+                  <BracketsCurly size={16} className="text-signal-400" />
+                  agent.ts
+                </div>
+                <span class="rounded-full border border-white/9 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-mist-500">
+                  TypeScript
+                </span>
+              </div>
+              <pre class="overflow-x-auto font-mono text-[13px] leading-7 text-mist-300 sm:text-sm"><code><span class="text-violet-300">import</span> &#123; <span class="text-signal-300">AgentRuntime</span> &#125; <span class="text-violet-300">from</span> <span class="text-amber-200">"@elizaos/agent"</span>;
+
+<span class="text-violet-300">const</span> agent = <span class="text-violet-300">new</span> <span class="text-sky-300">AgentRuntime</span>(&#123;
+  <span class="text-mist-300">character</span>: &#123; <span class="text-mist-300">name</span>: <span class="text-amber-200">"Eliza"</span> &#125;,
+  <span class="text-mist-300">plugins</span>: [memory, browser, localInference],
+&#125;);
+
+<span class="text-violet-300">await</span> agent.<span class="text-sky-300">start</span>();</code></pre>
+              <p class="text-pretty mt-8 max-w-xl text-sm leading-7 text-mist-500">
+                相同的插件契约覆盖消息、模型、服务、事件、路由与应用视图，迁移成本更低。
+              </p>
+            </div>
+
+            <div class="divide-y divide-white/8 px-5 sm:px-8 lg:px-9">
+              {packages.map((pkg, index) => (
+                <div class="py-7">
+                  <div class="flex items-start gap-4">
+                    <span class="mt-0.5 font-mono text-[10px] text-mist-500">
+                      0{index + 1}
+                    </span>
+                    <div>
+                      <h3 class="font-mono text-sm font-medium text-signal-300">
+                        {pkg.name}
+                      </h3>
+                      <p class="text-pretty mt-2 text-sm leading-6 text-mist-500">
+                        {pkg.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="inference"
+        class="scroll-mt-24 border-y border-white/8 bg-ink-900/50 py-24 sm:py-32 lg:py-40"
+      >
+        <div class="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[0.76fr_1.24fr] lg:items-center lg:gap-16 lg:px-10">
+          <div class="reveal order-2 lg:order-1">
+            <h2 class="text-balance text-4xl leading-tight font-semibold tracking-[-0.045em] sm:text-5xl">
+              端侧推理，
+              <br />
+              不是降级选项。
+            </h2>
+            <p class="text-pretty mt-6 max-w-xl text-base leading-8 text-mist-300 sm:text-lg">
+              硬件检测与模型路由会选择可用后端。资源就绪后，支持的操作可以离线运行，也可以继续使用云端能力。
+            </p>
+            <div class="mt-10 grid grid-cols-2 gap-x-4 gap-y-7 border-t border-white/10 pt-8 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+              {[
+                ["2B", "轻量文本"],
+                ["4B", "均衡文本"],
+                ["9B", "复杂文本"],
+                ["27B", "高阶文本"],
+              ].map(([size, label]) => (
+                <div>
+                  <p class="font-mono text-2xl font-medium tracking-[-0.04em] text-mist-100">
+                    {size}
+                  </p>
+                  <p class="mt-1 text-xs text-mist-500">{label}</p>
+                </div>
+              ))}
+            </div>
+            <div class="mt-9 flex flex-wrap gap-2">
+              <span class="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-2 text-xs text-mist-300">
+                <Cpu size={14} className="text-signal-400" />
+                本地嵌入
+              </span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-2 text-xs text-mist-300">
+                <Cloud size={14} className="text-signal-400" />
+                视觉与语音
+              </span>
+              <span class="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-2 text-xs text-mist-300">
+                <ShieldCheck size={14} className="text-signal-400" />
+                离线可用
+              </span>
+            </div>
+          </div>
+
+          <figure class="reveal order-1 overflow-hidden rounded-[1.5rem] border border-white/10 bg-ink-950 lg:order-2">
+            <img
+              src="/images/local-inference.png"
+              alt="本地 AI 推理模块的芯片与散热结构特写"
+              width="2624"
+              height="1472"
+              loading="lazy"
+              decoding="async"
+              class="aspect-video w-full object-cover"
+            />
+            <figcaption class="flex flex-wrap items-center justify-between gap-3 border-t border-white/8 px-5 py-4 text-xs text-mist-500 sm:px-6">
+              <span>Eliza-1 本地模型注册表</span>
+              <span class="font-mono">Gemma 4 / 2B — 27B</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="start" class="scroll-mt-24 py-24 sm:py-32 lg:py-40">
+        <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div class="reveal relative overflow-hidden rounded-[1.75rem] border border-signal-400/20 bg-signal-400/[0.06] px-6 py-12 sm:px-10 sm:py-16 lg:px-16 lg:py-20">
+            <div class="absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_center,rgba(183,243,75,0.1),transparent_60%)]"></div>
+            <div class="relative grid gap-12 lg:grid-cols-[0.86fr_1.14fr] lg:items-end lg:gap-20">
+              <div>
+                <h2 class="text-balance text-4xl leading-tight font-semibold tracking-[-0.045em] sm:text-5xl">
+                  从下一条命令，
+                  <br />
+                  开始构建。
+                </h2>
+                <p class="text-pretty mt-6 max-w-xl text-base leading-8 text-mist-300">
+                  安装官方 CLI，创建一个项目；能力不够时，再添加属于你的插件。
+                </p>
+                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <a
+                    href="https://docs.elizaos.ai/"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-signal-400 px-6 text-sm font-semibold text-ink-950 hover:bg-signal-300 active:scale-[0.98]"
+                  >
+                    创建项目
+                    <ArrowUpRight size={17} weight="bold" />
+                  </a>
+                  <a
+                    href="https://github.com/elizaOS/eliza/releases"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/14 bg-ink-950/40 px-6 text-sm font-semibold text-mist-100 hover:border-white/24 hover:bg-ink-950/60 active:scale-[0.98]"
+                  >
+                    <DownloadSimple size={17} weight="bold" />
+                    下载发行版
+                  </a>
+                </div>
+              </div>
+
+              <div class="overflow-hidden rounded-[1.25rem] border border-white/10 bg-ink-950 shadow-[0_28px_80px_rgba(0,0,0,0.25)]">
+                <div class="flex items-center justify-between border-b border-white/8 px-5 py-4">
+                  <div class="flex items-center gap-2 font-mono text-xs text-mist-500">
+                    <Code size={16} className="text-signal-400" />
+                    terminal
+                  </div>
+                  <span class="font-mono text-[10px] uppercase tracking-wider text-mist-500">
+                    bun
+                  </span>
+                </div>
+                <div class="space-y-3 p-5 font-mono text-xs leading-6 sm:p-7 sm:text-sm">
+                  <p>
+                    <span class="mr-3 text-signal-400">$</span>bun add --global
+                    elizaos@beta
+                  </p>
+                  <p>
+                    <span class="mr-3 text-signal-400">$</span>elizaos create
+                    my-project --template project
+                  </p>
+                  <p>
+                    <span class="mr-3 text-signal-400">$</span>elizaos create
+                    plugin-example --template plugin
+                  </p>
+                  <p class="pt-2 text-mist-500">项目可部署，插件可复用。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/8 py-10">
+      <div class="mx-auto flex max-w-7xl flex-col gap-8 px-5 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-10">
+        <div class="flex items-center gap-3">
+          <span
+            class="grid size-7 grid-cols-2 gap-0.5 rounded-lg bg-signal-400 p-1.5"
+            aria-hidden="true"
+          >
+            <span class="rounded-[2px] bg-ink-950"></span>
+            <span class="rounded-[2px] bg-ink-950/45"></span>
+            <span class="rounded-[2px] bg-ink-950/45"></span>
+            <span class="rounded-[2px] bg-ink-950"></span>
+          </span>
+          <div>
+            <p class="text-sm font-semibold">elizaOS</p>
+            <p class="mt-0.5 text-xs text-mist-500">你的智能体操作系统</p>
+          </div>
+        </div>
+        <nav
+          class="flex flex-wrap gap-x-6 gap-y-3 text-sm text-mist-500"
+          aria-label="页脚导航"
+        >
+          <a
+            href="https://github.com/elizaOS/eliza"
+            target="_blank"
+            rel="noreferrer"
+            class="inline-flex items-center gap-2 hover:text-mist-100"
+          >
+            <GithubLogo size={16} />
+            GitHub
+          </a>
+          <a
+            href="https://docs.elizaos.ai/"
+            target="_blank"
+            rel="noreferrer"
+            class="hover:text-mist-100"
+          >
+            文档
+          </a>
+          <a
+            href="https://eliza.app/downloads"
+            target="_blank"
+            rel="noreferrer"
+            class="hover:text-mist-100"
+          >
+            下载
+          </a>
+          <a
+            href="https://cloud.eliza.app"
+            target="_blank"
+            rel="noreferrer"
+            class="hover:text-mist-100"
+          >
+            Eliza Cloud
+          </a>
+        </nav>
+        <p class="text-xs text-mist-500">MIT License · Open source</p>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>

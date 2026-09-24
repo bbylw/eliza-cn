@@ -3,7 +3,7 @@ import { CircleNotchIcon as CircleNotch } from "@phosphor-icons/react/dist/csr/C
 import { PlayIcon as Play } from "@phosphor-icons/react/dist/csr/Play";
 import { SparkleIcon as Sparkle } from "@phosphor-icons/react/dist/csr/Sparkle";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 const scenarios = {
   research: {
@@ -40,13 +40,8 @@ export default function AgentConsole() {
   const runId = useRef(0);
   const reduceMotion = useReducedMotion();
 
-  useEffect(() => {
-    return () => {
-      runId.current += 1;
-    };
-  }, []);
-
   const selectScenario = (key: ScenarioKey) => {
+    runId.current += 1; // invalidate any pending run from the previous scenario
     setActiveScenario(key);
     setPrompt(scenarios[key].prompt);
     setResult(scenarios[key].result);
